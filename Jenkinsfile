@@ -31,11 +31,13 @@ pipeline {
         stage('Deliver') { 
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python2' 
+                    image 'cdrx/pyinstaller-linux:python3' 
                 }
             }
             steps {
-                sh 'ls'
+                sh 'python3 -m venv devfun
+                sh 'source devfun/bin/activate'
+                sh 'pip3 install -r requirements.txt'
                 sh 'pyinstaller sources/add2vals.py' 
             }
             post {
