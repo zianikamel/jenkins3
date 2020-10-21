@@ -4,12 +4,12 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:2-alpine'
+                    image 'python:alpine:3.12'
                 }
             }
             steps {
                 sh 'ls'
-                sh 'python -m py_compile sources/add2vals.py sources/calc.py'
+                sh 'python3 -m py_compile sources/add2vals.py sources/calc.py'
             }
         }
         stage('Test') {
@@ -31,7 +31,7 @@ pipeline {
         stage('Deliver') { 
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python2' 
+                    image 'cdrx/pyinstaller-linux:python3' 
                 }
             }
             steps {
