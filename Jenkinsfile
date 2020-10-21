@@ -35,7 +35,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'ls sources'
+                sh 'cat /var/jenkins_home/workspace/Calculs@tmp/durable-39e8a05e/script.sh'
                 sh 'pyinstaller sources/add2vals.py' 
             }
             post {
