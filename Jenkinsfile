@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:alpine:3.12'
+                    image 'lgatica/python-alpine'
                 }
             }
             steps {
