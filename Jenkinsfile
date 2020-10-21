@@ -31,11 +31,11 @@ pipeline {
         stage('Deliver') { 
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python3' 
+                    image 'cdrx/pyinstaller-linux:python2' 
                 }
             }
             steps {
-                sh 'cat /var/jenkins_home/workspace/Calculs@tmp/durable-39e8a05e/script.sh'
+                sh 'ls'
                 sh 'pyinstaller sources/add2vals.py' 
             }
             post {
