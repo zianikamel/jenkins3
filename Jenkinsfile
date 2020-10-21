@@ -36,7 +36,7 @@ pipeline {
             }
             steps {
                 sh 'ls sources'
-                sh 'pyinstaller --onefile sources/add2vals.py' 
+                sh 'pyinstaller sources/add2vals.py' 
             }
             post {
                 success {
